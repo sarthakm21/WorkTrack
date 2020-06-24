@@ -1,0 +1,19 @@
+<%- include('./partials/header') %>
+
+<div class="container">
+    <% for(let one of work){ %>
+    <div class="card display">
+        <div class="card-header">
+            <%= one.title %>
+        </div>
+        <div class="card-body">
+            <!-- <h5 class="card-title">Special title treatment</h5> -->
+            <p class="card-text"><%= one.desc %></p>
+            <p class="card-text"><strong>Time Elapsed: <%= one.endTime - one.startTime %> </strong></p>
+        </div>
+    </div>
+    <% } %>
+</div>
+
+
+<%- include('./partials/footer') %>
