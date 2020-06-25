@@ -1,14 +1,14 @@
 <%- include('./partials/header') %>
 
 <div class="container">
-    <form>
+    <form action="/login" method="POST">
         <div class="form-group">
-            <label for="exampleInputEmail1">Email</label>
-            <input type="text" class="form-control" aria-describedby="emailHelp">
+            <label>Email</label>
+            <input type="text" class="form-control" aria-describedby="emailHelp" name="email">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">Password</label>
-            <input type="password" class="form-control" aria-describedby="emailHelp">
+            <label>Password</label>
+            <input type="password" class="form-control" aria-describedby="emailHelp" name="password">
         </div>
         <button class="btn btn-primary">Login</button>
     </form>

@@ -35,7 +35,6 @@
             button.title = "Click here to add your work to the records!";
         }
 
-
         button.addEventListener("click", (e) => {
             e.preventDefault();
             var post = {};
@@ -52,7 +51,7 @@
                 localStorage.endTime = new Date();
             }
 
-            else if (button.innerHTML === "End Task") {
+            else if (button.innerHTML === "Submit") {
                 post.title = $('#title').val();
                 post.desc = $('#desc').val();
                 post.startTime = new Date(localStorage.startTime);
