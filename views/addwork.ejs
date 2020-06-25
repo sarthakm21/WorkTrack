@@ -9,15 +9,32 @@
             <label for="exampleFormControlTextarea1">Description</label>
             <textarea class="form-control" rows="3" id="desc"></textarea>
         </div>
-
-        <button class="btn btn-primary" id="started">Start Task</button>
-
+        <button class="btn btn-primary" id="started" title="Click here when you start working">Start Task</button>
+        <button class="btn btn-warning" id="clear" title="Click to clear the data and start over">Clear Data</button>
     </form>
 
     <script src="https://code.jquery.com/jquery-3.1.1.js"
         integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
     <script>
         const button = document.getElementById('started');
+        const clear = document.getElementById('clear');
+
+        clear.addEventListener("click", (e) => {
+            localStorage.removeItem('startTime');
+            localStorage.removeItem('endTime');
+            window.location.reload();
+        })
+
+        if (localStorage.startTime && !localStorage.endTime) {
+            button.innerHTML = "End Task";
+            button.title = "Click here when you are done working";
+        }
+
+        if (localStorage.startTime && localStorage.endTime) {
+            button.innerHTML = "Submit";
+            button.title = "Click here to add your work to the records!";
+        }
+
 
         button.addEventListener("click", (e) => {
             e.preventDefault();
@@ -25,15 +42,17 @@
 
             if (button.innerHTML === "Start Task") {
                 button.innerHTML = "End Task";
+                button.title = "Click here when you are done with the work";
                 localStorage.startTime = new Date();
             }
 
             else if (button.innerHTML === "End Task") {
                 button.innerHTML = "Submit";
+                button.title = "Click here to add your work to records";
                 localStorage.endTime = new Date();
             }
 
-            else if (button.textContent === "Submit") {
+            else if (button.innerHTML === "End Task") {
                 post.title = $('#title').val();
                 post.desc = $('#desc').val();
                 post.startTime = new Date(localStorage.startTime);
