@@ -1,6 +1,7 @@
 <%- include('./partials/header') %>
 
-<canvas id="myChart" width="600" height="600" class="chart"></canvas>
+<h3 class="chart-header">The time you spent working in the last 30 days</h3>
+<canvas id="myChart" class="chart"></canvas>
 
 <script>
     const ctx = document.getElementById('myChart');
@@ -9,13 +10,12 @@
     let time = [];
 
     let count=0;
-
     for (let i of data) {
         if(count>0 && date[count-1] === new Date(i.startTime).toDateString()){
-            time[count-1]+=(new Date(i.endTime) - new Date(i.startTime))/60000;
+            time[count-1]+=Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10;
         } else {
             date.push(new Date(i.startTime).toDateString());
-            time.push((new Date(i.endTime) - new Date(i.startTime))/60000);
+            time.push(Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10);
             count++;
         }
     }
@@ -33,11 +33,10 @@
                 borderColor: [
                     'rgba(255, 99, 132, 1)'
                 ],
-                borderWidth: 2
+                borderWidth: 1
             }]
         },
         options: {
-            responsive: false,
             scales: {
                 yAxes: [{
                     ticks: {

@@ -30,3 +30,20 @@ body{
     width: 100%;
     margin-top: 20px;
 }
+
+.chart{
+    margin: 20px auto;
+    max-width: 70%;
+}
+
+@media(max-width: 600px){
+    .chart{
+        max-width: 100%;
+    }
+}
+
+.chart-header{
+    text-align: center;
+    font-weight: 400;
+    margin: 10px auto;
+}
