@@ -7,7 +7,8 @@ const express = require('express'),
     User = require('./models/user'),
     workRoutes = require('./routes/work'),
     authRoutes = require('./routes/auth'),
-    showRoutes = require('./routes/show');
+    showRoutes = require('./routes/show'),
+    statsRoutes = require('./routes/statistics');
 
 const LocalStorage = require('node-localstorage').LocalStorage;
 localStorage = new LocalStorage('./scratch');
@@ -53,6 +54,7 @@ app.use(function (req, res, next) {
 app.use(showRoutes);
 app.use(workRoutes);
 app.use(authRoutes);
+app.use(statsRoutes);
 
 let port = process.env.PORT || 3000
 app.listen(port, () => {

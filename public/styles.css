@@ -4,6 +4,7 @@ body{
 
 .display{
     margin: 40px auto;
+    width: 70%;
 }
 
 .auth-div{

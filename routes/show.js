@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 
 router.get("/home", isLoggedIn, (req, res) => {
     console.log(req.user);
-    Work.find({}, null, { sort: { startTime: -1 } }, (err, found) => {
+    Work.find({ "author": req.user._id }, null, { sort: { startTime: -1 } }, (err, found) => {
         err ? console.log(err) : res.render("home", { work: found, name: "Start Task" });
     });
 });

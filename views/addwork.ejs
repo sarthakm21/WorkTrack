@@ -1,6 +1,7 @@
 <%- include('./partials/header') %>
 <div class="container">
     <form>
+
         <div class="form-group">
             <label for="exampleInputEmail1">Title</label>
             <input type="text" class="form-control" aria-describedby="emailHelp" id="title" required>
@@ -9,12 +10,11 @@
             <label for="exampleFormControlTextarea1">Description</label>
             <textarea class="form-control" rows="3" id="desc"></textarea>
         </div>
-        <button class="btn btn-primary" id="started" title="Click here when you start working">Start Task</button>
+        <button class="btn btn-primary" id="started" title="Click here when you start working"
+            data-user=<%= currentUser._id %>>Start Task</button>
         <button class="btn btn-warning" id="clear" title="Click to clear the data and start over">Clear Data</button>
     </form>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.js"
-        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
     <script>
         const button = document.getElementById('started');
         const clear = document.getElementById('clear');
@@ -56,6 +56,7 @@
                 post.desc = $('#desc').val();
                 post.startTime = new Date(localStorage.startTime);
                 post.endTime = new Date(localStorage.endTime);
+                post.author = button.dataset.user;
 
                 console.log(post); //Here, the post object is defined
 

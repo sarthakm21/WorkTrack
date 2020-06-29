@@ -4,14 +4,17 @@
     <% for(let one of work){ %>
     <div class="card display">
         <div class="card-header">
-            <%= one.title %>
+            <h4 id="title"><%= one.title %></h4>
+            <h6>
+                <%= one.startTime.getDate() %>/<%= one.startTime.getMonth() %>/<%= one.startTime.getYear() %></h6>
         </div>
         <div class="card-body">
             <!-- <h5 class="card-title">Special title treatment</h5> -->
-            <p class="card-text"><%= one.desc %></p>
-            <p class="card-text"><strong>Time Elapsed: <%= one.endTime - one.startTime %> </strong></p>
+            <p class="card-text" id="desc"><%= one.desc %></p>
+            <p class="card-text" id="time"><strong>Time Elapsed: <%= one.endTime - one.startTime %> </strong></p>
         </div>
     </div>
+
     <% } %>
 </div>
 

@@ -1,0 +1,52 @@
+<%- include('./partials/header') %>
+
+<canvas id="myChart" width="600" height="600" class="chart"></canvas>
+
+<script>
+    const ctx = document.getElementById('myChart');
+    const data = <%- JSON.stringify(final) %>;
+    let date = [];
+    let time = [];
+
+    let count=0;
+
+    for (let i of data) {
+        if(count>0 && date[count-1] === new Date(i.startTime).toDateString()){
+            time[count-1]+=(new Date(i.endTime) - new Date(i.startTime))/60000;
+        } else {
+            date.push(new Date(i.startTime).toDateString());
+            time.push((new Date(i.endTime) - new Date(i.startTime))/60000);
+            count++;
+        }
+    }
+
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: date,
+            datasets: [{
+                label: 'Time Spent Working (in minutes)',
+                data: time,
+                backgroundColor: [
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+<%- include('./partials/footer') %>
