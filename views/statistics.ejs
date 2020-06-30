@@ -11,6 +11,7 @@
 </div>
 
 <script>
+    //====================================================================================================
     //FOR THE LINE GRAPH
     const lineChart = document.getElementById('lineChart');
     const data = <%- JSON.stringify(final) %>;
@@ -73,6 +74,18 @@
         }
     }
 
+    let pieColors=[];
+    for(let i=0;i<data.length;i++){
+        let colorString = "rgba(";
+        for(let k=0;k<3;k++){
+            let num=Math.floor(Math.random()*255 + 1);
+            colorString+=num+",";
+        }
+        colorString+="1";
+        colorString+=")";
+        pieColors.push(colorString);
+    }
+
     if(pieTitle.length > 0){
         todayswork.innerHTML = "Your Work Today"
         var myPieChart = new Chart(pieChart, {
@@ -81,14 +94,11 @@
                 labels: pieTitle,
                 datasets: [{
                     hoverBorderWidth: 1,
+                    hoverBorderColor: 'black',
                     data: pieTime,
                     lineTension: 0.3,
-                    backgroundColor: [
-                        'rgba(255, 206, 86, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)'
-                    ],
+                    backgroundColor: pieColors,
+                    borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 0.5
                 }]
             }

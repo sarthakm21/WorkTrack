@@ -2,6 +2,14 @@ body{
     background: #e2e1e0;
 }
 
+.addform{
+    width: 60%;
+    margin: 20px auto;
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
 .display{
     margin: 40px auto;
     width: 70%;
@@ -38,6 +46,16 @@ body{
 @media(max-width: 600px){
     .chart{
         max-width: 100%;
+    }
+
+    .addform{
+        width: 100%;
+    }
+
+    .button-div button{
+        display: block;
+        width: 100%;
+        margin: 10px 0;
     }
 }
 
