@@ -43,11 +43,19 @@ body{
     max-width: 70%;
 }
 
-@media(max-width: 600px){
-    .chart{
-        max-width: 100%;
-    }
+.chart-header{
+    text-align: center;
+    font-weight: 400;
+    margin: auto;
+}
 
+.chartArea{
+    margin: 20px;
+    padding: 20px 0;
+    background-color: #dddddc;
+}
+
+@media(max-width: 600px){
     .addform{
         width: 100%;
     }
@@ -59,14 +67,15 @@ body{
     }
 }
 
-.chart-header{
-    text-align: center;
-    font-weight: 400;
-    margin: auto;
+@media(max-width: 768px){
+    .chart{
+        max-width: 100%;
+    }
 }
 
-.chartArea{
-    margin: 20px;
-    padding: 20px 0;
-    background-color: #dddddc;
+@media(max-width: 440px){
+    .chartArea{
+        margin: 10px 0;
+        padding: 10px 0;
+    }
 }

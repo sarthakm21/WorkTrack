@@ -1,8 +1,8 @@
 <%- include('./partials/header') %>
 
 <div class="chartArea row today">
-    <h3 class="chart-header col-md-3" id="todays-work"></h3>
-    <canvas id="pieChart" class="chart col-md-9"></canvas>
+    <h3 class="chart-header col-md-3 col-12" id="todays-work"></h3>
+    <canvas id="pieChart" class="chart col-md-9 col-12"></canvas>
 </div>
 
 <div class="chartArea row">
@@ -52,6 +52,11 @@
                 yAxes: [{
                     ticks: {
                         beginAtZero: true
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontSize: 10
                     }
                 }]
             }
