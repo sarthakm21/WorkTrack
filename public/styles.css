@@ -32,7 +32,6 @@ body{
 }
 
 .chart{
-    margin: 20px auto;
     max-width: 70%;
 }
 
@@ -45,5 +44,11 @@ body{
 .chart-header{
     text-align: center;
     font-weight: 400;
-    margin: 10px auto;
+    margin: auto;
+}
+
+.chartArea{
+    margin: 20px;
+    padding: 20px 0;
+    background-color: #dddddc;
 }

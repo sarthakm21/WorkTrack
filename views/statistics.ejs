@@ -1,32 +1,42 @@
 <%- include('./partials/header') %>
 
-<h3 class="chart-header">The time you spent working in the last 30 days</h3>
-<canvas id="myChart" class="chart"></canvas>
+<div class="chartArea row today">
+    <h3 class="chart-header col-md-3" id="todays-work"></h3>
+    <canvas id="pieChart" class="chart col-md-9"></canvas>
+</div>
+
+<div class="chartArea row">
+    <h3 class="chart-header col-md-3">The time you spent working in the last 30 days</h3>
+    <canvas id="lineChart" class="chart col-md-9 col-sm-12"></canvas>
+</div>
 
 <script>
-    const ctx = document.getElementById('myChart');
+    //FOR THE LINE GRAPH
+    const lineChart = document.getElementById('lineChart');
     const data = <%- JSON.stringify(final) %>;
-    let date = [];
-    let time = [];
+
+    let linedate = [];
+    let linetime = [];
 
     let count=0;
     for (let i of data) {
-        if(count>0 && date[count-1] === new Date(i.startTime).toDateString()){
-            time[count-1]+=Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10;
+        if(count>0 && linedate[count-1] === new Date(i.startTime).toDateString()){
+            linetime[count-1]+=Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10;
         } else {
-            date.push(new Date(i.startTime).toDateString());
-            time.push(Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10);
+            linedate.push(new Date(i.startTime).toDateString());
+            linetime.push(Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10);
             count++;
         }
     }
 
-    var myChart = new Chart(ctx, {
+    var myLineChart = new Chart(lineChart, {
         type: 'line',
         data: {
-            labels: date,
+            labels: linedate,
             datasets: [{
                 label: 'Time Spent Working (in minutes)',
-                data: time,
+                data: linetime,
+                lineTension: 0.3,
                 backgroundColor: [
                     'rgba(255, 206, 86, 0.2)'
                 ],
@@ -46,6 +56,47 @@
             }
         }
     });
+
+    //===================================================================
+    //For the doughnut chart
+    const pieChart = document.getElementById('pieChart');
+    const todayswork = document.getElementById('todays-work');
+    const today = document.querySelector(".today");
+    let pieTitle=[];
+    let pieTime=[];
+
+    for(let num = data.length-1;num>=0;num--){
+        let i = data[num];
+        if(new Date(i.startTime).toDateString() == new Date().toDateString()){
+            pieTitle.push(i.title);
+            pieTime.push(Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10)
+        }
+    }
+
+    if(pieTitle.length > 0){
+        todayswork.innerHTML = "Your Work Today"
+        var myPieChart = new Chart(pieChart, {
+            type: 'doughnut',
+            data: {
+                labels: pieTitle,
+                datasets: [{
+                    hoverBorderWidth: 1,
+                    data: pieTime,
+                    lineTension: 0.3,
+                    backgroundColor: [
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 0.5
+                }]
+            }
+        });
+    } else {
+        today.style.display= "none";
+    }
+    // =============================================================================================================
 </script>
 
 <%- include('./partials/footer') %>
