@@ -2,6 +2,36 @@ body{
     background: #e2e1e0;
 }
 
+nav{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.registerPage h1{
+    font-size: 2.1rem!important;
+}
+
+.loginPage{
+    background-color: rgb(44, 44, 44);
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 50px;
+    border-radius: 5px;
+}
+
+.loginPage div h1{
+    font-size: 3rem;
+    text-align: end;
+}
+
+.loginPage div h3{
+    font-weight: 200;
+    margin: 20px 5px;
+    text-align: end;
+}
+
 .addform{
     width: 60%;
     margin: 20px auto;
@@ -16,12 +46,13 @@ body{
 }
 
 .auth-div{
+    margin: 0;
+    color: black;
     background-color: white;
     padding: 50px 40px;
     border-radius: 2px;
     width: 350px;
     height: 400px;
-    margin: 40px auto;
     /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
@@ -71,11 +102,41 @@ body{
     .chart{
         max-width: 100%;
     }
+
+    .loginPage div h3{
+        font-weight: 200;
+        margin: 20px 5px;
+        text-align: center;
+    }
+
+    .loginPage div h1{
+        font-weight: 200;
+        margin: 20px 5px;
+        text-align: center;
+    }
 }
 
-@media(max-width: 440px){
+@media(max-width: 460px){
     .chartArea{
         margin: 10px 0;
         padding: 10px 0;
+    }
+
+    .loginPage{
+        padding: 20px;
+        margin: 10px;
+    }
+}
+
+@media(max-width: 500px){
+    .loginPage div h1{
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 900px){
+    .registerPage h1,h3{
+        text-align: center!important;
     }
 }

@@ -1,21 +1,26 @@
 <%- include('./partials/header') %>
 
-<div class="container auth-div">
-    <form method="POST" action="/register">
-        <div class="form-group">
-            <label for="exampleInputEmail1">User Name</label>
-            <input type="text" class="form-control" aria-describedby="emailHelp" name="username">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email</label>
-            <input type="text" class="form-control" aria-describedby="emailHelp" name="email">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Password</label>
-            <input type="password" class="form-control" aria-describedby="emailHelp" name="password">
-        </div>
-        <button class="btn btn-primary">Register</button>
-    </form>
+<div class="loginPage registerPage row">
+    <div class="col-md-6 col-12">
+        <h1 class="display-4">New? Sign Up to and start tracking your work</h1>
+        <h3>Do Something Amazing!</h3>
+    </div>
+    <div class="container auth-div">
+        <form method="POST" action="/register">
+            <div class="form-group">
+                <label for="exampleInputEmail1">User Name</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" name="username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" name="email">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Password</label>
+                <input type="password" class="form-control" aria-describedby="emailHelp" name="password">
+            </div>
+            <button class="btn btn-primary">Register</button>
+        </form>
+    </div>
 </div>
-
 <%- include('./partials/footer') %>
