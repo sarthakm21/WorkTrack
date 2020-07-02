@@ -13,7 +13,6 @@ router.post("/home", isLoggedIn, (req, res) => {
             console.log("Error occured while posting to home", err);
             res.redirect("/home");
         } else {
-            console.log("Task Added", done);
             res.redirect("/home");
         }
     })

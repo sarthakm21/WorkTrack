@@ -8,7 +8,10 @@ const express = require('express'),
     workRoutes = require('./routes/work'),
     authRoutes = require('./routes/auth'),
     showRoutes = require('./routes/show'),
-    statsRoutes = require('./routes/statistics');
+    statsRoutes = require('./routes/statistics'),
+    editRoutes = require('./routes/edit'),
+    methodOverride = require("method-override"),
+    flash = require('connect-flash');
 
 const LocalStorage = require('node-localstorage').LocalStorage;
 localStorage = new LocalStorage('./scratch');
@@ -16,6 +19,8 @@ localStorage = new LocalStorage('./scratch');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
+app.use(flash());
 
 app.use(express.static(__dirname + '/public'));
 mongoose.set('useUnifiedTopology', true);
@@ -46,6 +51,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(function (req, res, next) {
+    res.locals.alerts = req.flash();
     res.locals.currentUser = req.user;
     next();
 });
@@ -55,6 +61,7 @@ app.use(showRoutes);
 app.use(workRoutes);
 app.use(authRoutes);
 app.use(statsRoutes);
+app.use(editRoutes);
 
 let port = process.env.PORT || 3000
 app.listen(port, () => {

@@ -8,7 +8,7 @@ router.get("/statistics", isLoggedIn, (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            console.log(final);
+            console.log(final); 
             res.render("statistics", { final: final });
         }
     })
