@@ -7,13 +7,13 @@
             <div class="card-header">
                 <h4 id="title"><%= one.title %></h4>
                 <h6>
-                    <%= one.startTime.getDate() %>/<%= one.startTime.getMonth() %>/<%= one.startTime.getYear() %></h6>
+                    <%= one.startTime.getDate() %>/<%= one.startTime.getMonth() %>/<%= one.startTime.getFullYear() %></h6>
             </div>
             <div class="card-body">
                 <!-- <h5 class="card-title">Special title treatment</h5> -->
                 <p class="card-text" id="desc"><%= one.desc %></p>
                 <p class="card-text" id="time"><strong>Time Elapsed: <%= Math.round((one.endTime - one.startTime)/6000)/10 %> minutes </strong></p>
-                <a class="btn btn-sm btn-warning" href="/edit/<%= one._id %>" >Edit Work</a>
+                <a class="btn btn-sm btn-warning" href="/edit/<%= one._id %>" >Edit</a>
 
                 <form method="POST" action="/delete/<%= one._id %>?_method=DELETE" style="display: inline;">
                     <button class="btn btn-sm btn-danger delete-button" 
@@ -21,10 +21,13 @@
                         href="/delete/<%= one._id %>"
                         onclick="return confirm('Are you sure you want to delete this?')"
                     >
-                            Delete Work
+                            Delete
                     </button>
                 </form>
-                
+
+                <form method="POST" action="inspireme/<%= one._id %> " style="display: inline;">
+                    <button class="btn btn-sm btn-success">Share</button>
+                </form>
             </div>
         </div>
         <% } %>

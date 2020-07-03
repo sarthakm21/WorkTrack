@@ -24,6 +24,7 @@
         if(count>0 && linedate[count-1] === new Date(i.startTime).toDateString()){
             linetime[count-1]+=Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10;
         } else {
+            
             linedate.push(new Date(i.startTime).toDateString());
             linetime.push(Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10);
             count++;

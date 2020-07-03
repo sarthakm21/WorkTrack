@@ -10,6 +10,7 @@ const express = require('express'),
     showRoutes = require('./routes/show'),
     statsRoutes = require('./routes/statistics'),
     editRoutes = require('./routes/edit'),
+    inspireRoutes = require('./routes/inspireme'),
     methodOverride = require("method-override"),
     flash = require('connect-flash');
 
@@ -62,6 +63,7 @@ app.use(workRoutes);
 app.use(authRoutes);
 app.use(statsRoutes);
 app.use(editRoutes);
+app.use(inspireRoutes);
 
 let port = process.env.PORT || 3000
 app.listen(port, () => {
