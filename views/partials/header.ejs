@@ -52,7 +52,9 @@
     </nav>
     <% if (alerts.error) { %>
         <% alerts.error.forEach(function(msg) { %>
-          <div class="alert alert-danger"><%= msg %></div>
+            <div class="alert alert-danger">
+              <%= msg %>
+            </div>
         <% }); %>
     <% } %>
     <% if (alerts.success) { %>

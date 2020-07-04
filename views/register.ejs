@@ -5,7 +5,7 @@
         <h1 class="display-4">New? Sign Up to and start tracking your work</h1>
         <h3>Do Something Amazing!</h3>
     </div>
-    <div class="container auth-div">
+    <div class="container auth-div register-div">
         <form method="POST" action="/register">
             <div class="form-group">
                 <label for="exampleInputEmail1">User Name</label>
@@ -18,6 +18,10 @@
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Password</label>
                 <input type="password" class="form-control" aria-describedby="emailHelp" name="password">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Re-Type Password</label>
+                <input type="password" class="form-control" aria-describedby="emailHelp" name="passwordconfirm">
             </div>
             <button class="btn btn-primary">Register</button>
         </form>

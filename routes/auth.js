@@ -19,29 +19,37 @@ router.get("/register", (req, res) => {
 });
 
 router.post("/register", (req, res) => {
-    if(!req.body.username || !req.body.email){
+    if(!req.body.username || !req.body.email || !req.body.password || !req.body.passwordconfirm){
         req.flash('error', "Please fill out all the fields");
         res.redirect("/register");
     }
-    var newUser = new User({ username: req.body.username, email: req.body.email });
-    User.register(newUser, req.body.password, (err, user) => {
-        if (err) {
-            console.log(err);
-            if(err.message === "A user with the given username is already registered")
-            req.flash('error', "A user with the Email already exists");
 
-            else if(err.message === "No username was given")
-            req.flash('error', "No Email was given");
+    else if(req.body.password !== req.body.passwordconfirm){
+        req.flash('error', "The passwords do not match");
+        res.redirect("/register");
+    }
 
-            else
-            req.flash('error', err.message);
+    else{
+        var newUser = new User({ username: req.body.username, email: req.body.email });
+        User.register(newUser, req.body.password, (err, user) => {
+            if (err) {
+                console.log(err);
+                if(err.message === "A user with the given username is already registered")
+                req.flash('error', "A user with the Email already exists");
 
-            return res.redirect("/register");
-        }
-        passport.authenticate("local")(req, res, () => {
-            res.redirect("/home");
-        })
-    });
+                else if(err.message === "No username was given")
+                req.flash('error', "No Email was given");
+
+                else
+                req.flash('error', err.message);
+
+                return res.redirect("/register");
+            }
+            passport.authenticate("local")(req, res, () => {
+                res.redirect("/home");
+            })
+        });
+    }  
 })
 
 router.get("/logout", (req, res) => {

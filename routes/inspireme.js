@@ -18,7 +18,6 @@ router.post("/inspireme/:id", isLoggedIn, (req,res) => {
         if(err)
         return res.redirect("/home");
 
-        console.log(found);
         let add = {
             title: found.title,
             desc: found.desc,
@@ -29,6 +28,7 @@ router.post("/inspireme/:id", isLoggedIn, (req,res) => {
             postingTime: new Date(),
             authorname: req.user.username
         }
+
         Inspire.create(add, (error, done) => {
             if(error)
             return res.redirect("/home");
