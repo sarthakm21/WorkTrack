@@ -30,12 +30,15 @@ router.post("/inspireme/:id", isLoggedIn, (req,res) => {
         }
 
         Inspire.create(add, (error, done) => {
-            if(error)
-            return res.redirect("/home");
+            if(error){
+                req.flash("This post has already been shared");
+                res.redirect("back");   
+            }
 
-            console.log(done);
-            req.flash("success", "Successfully shared your work!");
-            res.redirect("/inspireme");
+            else{
+                req.flash("success", "Successfully shared your work!");
+                res.redirect("/inspireme");
+            }
         })
     });
 });

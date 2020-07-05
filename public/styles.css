@@ -74,14 +74,20 @@ nav{
     margin-top: 20px;
 }
 
-.chart{
+/* .chart{
     max-width: 70%;
-}
+} */
 
 .chart-header{
-    text-align: center;
-    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: auto;
+}
+
+.chart-header h3{
+    font-weight: 400;
+    text-align: center;
 }
 
 .chartArea{
@@ -117,15 +123,16 @@ nav{
         font-weight: 200;
         margin: 20px 5px;
         text-align: center;
-    }
-
-    
+    }   
 }
 
 @media(max-width: 460px){
     .chartArea{
-        margin: 10px 0;
-        padding: 10px 0;
+        margin: 20px 0;
+    }
+
+    .chart{
+        padding: 0!important;
     }
 
     .loginPage{
