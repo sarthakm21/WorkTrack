@@ -1,5 +1,6 @@
 body{
     background: #e2e1e0;
+    /* background-color: #353536; */
 }
 
 nav{
@@ -12,6 +13,42 @@ i{
 
 .edit{
     padding-left: 5px;
+}
+
+.custom-card{
+    padding: 30px;
+    /* background-color: #353839; */
+    background-color: white;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+@media(min-width: 767px){
+    .custom-head{
+        border-right: 1px solid rgba(155, 153, 153, 0.2);
+    }
+
+    .custom-card{
+        width: 80%;
+        margin: 30px auto;
+        padding: 40px;
+    }
+}
+
+@media(max-width: 767px){
+    .custom-head{
+        border-bottom: 1px solid rgba(155, 153, 153, 0.2);
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .custom-card{
+        margin: 20px;
+        text-align: center;
+    }
+}
+
+.custom-head h3{
+    font-size: 1.2rem;
 }
 
 .registerPage h1{
@@ -81,10 +118,6 @@ i{
     width: 100%;
     margin-top: 20px;
 }
-
-/* .chart{
-    max-width: 70%;
-} */
 
 .chart-header{
     display: flex;

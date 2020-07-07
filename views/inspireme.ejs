@@ -1,27 +1,24 @@
 <%- include('./partials/header') %>
 
 <div class="container">
-    <h1 class="display-3">See What Others Are Up To</h1>
-    <% if(data.length !==0 ){ %> 
-        <% for(let one of data){ %>
-        <div class="card display">
-            <div class="card-header">
-                <h4 id="title"><%= one.title %></h4>
-                <h6><%= one.postingTime.getDate() %>/<%= one.postingTime.getMonth() %>/<%= one.postingTime.getFullYear() %> <%= one.postingTime.getHours() %>:<%= one.postingTime.getMinutes() %>:<%= one.postingTime.getSeconds() %></h6>
-                <h6>Shared By: <%= one.authorname %></h6>
+    <% for(let one of data){ %>
+        <div class="custom-card">
+            <div class="row">
+              <div class="col-md-5 custom-head">
+                <h3 class="display-4"><%= one.postingTime.toDateString() %></h3>
+                <h3 class="display-4">Shared by <%= one.authorname %></h3>
+                <h4>Worked for: <%= Math.round((new Date(one.endTime) - new Date(one.startTime))/6000)/10 %> minutes</h4>
+                <h4> </h4>
+              </div>
+              <div class="col-md-7 custom-body">
+                <div>
+                    <h5><%= one.title %> </h5>
+                    <p><%= one.desc %> </p>
+                </div>
+              </div>
             </div>
-            <div class="card-body">
-                <!-- <h5 class="card-title">Special title treatment</h5> -->
-                <p class="card-text" id="desc"><%= one.desc %></p>
-                <p class="card-text" id="time"><strong>Time Elapsed: <%= Math.round((one.endTime - one.startTime)/6000)/10 %> minutes </strong></p>
-            </div>
-        </div>
-        <% } %>
-    <% } else { %>
-        <div class="container">
-            <p>Whoa Nigga, that's some empty shit. Start doing some work!</p>
-        </div>
-    <% } %>  
+          </div>
+    <% } %> 
 </div>
 
 <%- include('./partials/footer') %>
