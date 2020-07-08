@@ -198,6 +198,13 @@ i{
 }
 
 @media(max-width: 460px){
+    .newuser h3{
+        font-size: 2rem;
+    }
+
+    .newuser h4{
+        font-size: 1rem;
+    }
     .imagebox{
         padding: 10px 0;
         margin: 10px 0;
