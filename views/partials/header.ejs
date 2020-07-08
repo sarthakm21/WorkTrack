@@ -45,22 +45,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item py-10">
-                    <a class="nav-link" href="/addwork">Add Work<span class="sr-only">(current)</span></a>
+                <a class="nav-link <% if(page === "addwork"){ %> active <% } %>" href="/addwork">Add Work<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/statistics">Your Stats</a>
+                    <a class="nav-link <% if(page === "stats"){ %> active <% } %>" href="/statistics">Your Stats</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/inspireme">Inspire Me</a>
+                    <a class="nav-link <% if(page === "inspireme"){ %> active <% } %>" href="/inspireme">Inspire Me</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <% if(!currentUser){ %>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
+                    <a class="nav-link <% if(page === "login"){ %> active <% } %>" href="/login">Login<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
+                    <a class="nav-link <% if(page === "register"){ %> active <% } %>" href="/register">Register</a>
                 </li>
                 <% } else { %>
                 <li class="nav-item">
