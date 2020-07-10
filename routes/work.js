@@ -15,7 +15,7 @@ router.post("/home", isLoggedIn, (req, res) => {
         } else {
             res.redirect("/home");
         }
-    })
+    });
 });
 
 module.exports = router;

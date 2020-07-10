@@ -1,5 +1,8 @@
 body{
     background: #e2e1e0;
+    /* position: relative;
+    background: url("bg1o.png") no-repeat fixed top center;
+    background-size: cover; */
     /* background-color: #353536; */
 }
 

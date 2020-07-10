@@ -10,8 +10,7 @@ router.get("/login", (req, res) => {
 router.post("/login", passport.authenticate("local", {
     successRedirect: "/home",
     failureRedirect: "/login",
-    failureFlash: 'Invalid Email and/or password',
-    successFlash: 'Successfully Logged In'
+    failureFlash: 'Invalid Email and/or password'
 }));
 
 router.get("/register", (req, res) => {

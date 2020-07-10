@@ -31,8 +31,9 @@ router.post("/inspireme/:id", isLoggedIn, (req,res) => {
 
         Inspire.create(add, (error, done) => {
             if(error){
-                req.flash("This post has already been shared");
-                res.redirect("back");   
+                console.log(error);   
+                req.flash("error", "This post has already been shared");
+                res.redirect("/home");
             }
 
             else{
@@ -41,6 +42,19 @@ router.post("/inspireme/:id", isLoggedIn, (req,res) => {
             }
         })
     });
+});
+
+router.delete("/inspireme/delete/:id", (req,res) => {
+    Inspire.findByIdAndDelete(req.params.id, (err,done) => {
+        if(err){
+            console.log(err);
+            req.flash("error", "Some error occured");
+        }
+        else {
+            req.flash("success", "Post Deleted!");
+            res.redirect("/inspireme");
+        }
+    })
 });
 
 module.exports = router;

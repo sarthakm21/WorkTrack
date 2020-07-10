@@ -27,7 +27,6 @@ router.put("/edit/:id", isLoggedIn, (req,res) => {
                 console.log(error);
                 return res.redirect("/edit"+req.params.id);
             } else {
-                console.log(updated);
                 res.redirect("/home");
             }
         });

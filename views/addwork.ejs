@@ -22,9 +22,13 @@
         const clear = document.getElementById('clear');
 
         clear.addEventListener("click", (e) => {
-            localStorage.removeItem('startTime');
-            localStorage.removeItem('endTime');
-            window.location.reload();
+            if(confirm("Warning, this action will remove all the text data as well as your saved starting and ending time")){
+                localStorage.removeItem('startTime');
+                localStorage.removeItem('endTime');
+                window.location.reload();
+            } else {
+                e.preventDefault();
+            }
         })
 
         if (localStorage.startTime && !localStorage.endTime) {
