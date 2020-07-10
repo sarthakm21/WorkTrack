@@ -33,7 +33,7 @@ router.post("/inspireme/:id", isLoggedIn, (req,res) => {
             if(error){
                 console.log(error);   
                 req.flash("error", "This post has already been shared");
-                res.redirect("/home");
+                res.redirect("back");
             }
 
             else{

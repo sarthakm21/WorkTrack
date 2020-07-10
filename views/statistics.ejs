@@ -1,5 +1,16 @@
 <%- include('./partials/header', {page: "stats"}) %>
 
+<div class="fix-stats">
+    <div class="monthwork">
+        <p>Past 30 days work time</p>
+        <div  class="font-weight-bold" id="monthly"></div>
+    </div>
+    <div class="weekwork">
+        <p>Past 7 days work time</p>
+        <div  class="font-weight-bold" id="weekly"></div>
+    </div>
+</div>
+
 <div class="chartArea row today">
     <div class="chart-header col-lg-3 col-12">
         <h3 id="todays-work"></h3>
@@ -19,10 +30,29 @@
 </div>
 
 <script>
+    // ==================================================================================================
+    // FOR THE MONTHLY AND WEEKLY STATS
+    const data = <%- JSON.stringify(final) %>;
+    const monthly = document.querySelector('#monthly');
+    const weekly = document.querySelector('#weekly');
+    let monthWork=0,weekWork=0;
+
+    for(let i of data){
+        if(new Date(i.startTime) >= new Date()-7*24*60*60*1000){
+            weekWork+=Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10;
+            monthWork+=Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10;
+        } else if (new Date(i.startTime) >= new Date()-30*24*60*60*1000) {
+            monthWork+=Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10;
+        }
+    }
+
+    monthly.innerHTML = Math.round(monthWork/6)/10 + " Hours";
+    weekly.innerHTML = Math.round(weekWork/6)/10 + " Hours";
+
+
     //====================================================================================================
     //FOR THE LINE GRAPH
     const lineChart = document.getElementById('lineChart');
-    const data = <%- JSON.stringify(final) %>;
 
     let linedate = [];
     let linetime = [];

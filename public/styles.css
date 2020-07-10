@@ -6,12 +6,45 @@ body{
     /* background-color: #353536; */
 }
 
-nav{
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 i{
     padding: 2px 10px;
+}
+
+#main-navbar{
+    padding: 20px;
+    background-color: #343a40!important;
+}
+
+.nav-link{
+    transition: .3s all ease;
+}
+
+.nav-link:hover{
+    color: white!important;
+}
+
+.fix-stats{
+    width: 40vw;
+    background-color: white;
+    display: flex;
+    margin: 30px auto;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    padding: 30px 20px;
+}
+
+
+.fix-stats p{
+    margin-bottom: 5px;
+}
+
+.monthwork, .weekwork{
+    width: 50%;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.monthwork{
+    border-right: 1px solid rgb(206, 206, 206);
 }
 
 .edit{
@@ -171,6 +204,10 @@ i{
 }
 
 @media(max-width: 600px){
+    .fix-stats{
+        width: 70vw;
+    }
+
     .addform{
         width: 100%;
     }
@@ -201,6 +238,17 @@ i{
 }
 
 @media(max-width: 460px){
+    #inspire-hero{
+        margin: 30px 0;
+    } 
+    #inspire-hero h1{
+        font-size: 2rem;
+    }
+    .fix-stats{
+        width: 90vw;
+        padding: 20px;
+    }
+
     .newuser h3{
         font-size: 2rem;
     }

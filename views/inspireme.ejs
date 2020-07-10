@@ -1,14 +1,11 @@
 <%- include('./partials/header', {page: "inspireme"}) %>
 
 <div class="container">
-  <div class="jumbotron my-4">
-    <h1 class="display-4 text-center">
-      Need some motivation?
-    </h1>
-    <hr class="my-4 mx-4">
-    <p class="lead text-center">
-      Check out what some of our other users are working on! 
-    </p>
+
+  <div class="newuser p-md-5 p-4" id="inspire-hero">
+    <h1 class="display-4 text-left">Need some motivation to get working?</h1>
+    <hr class="mr-5 my-3 my-md-4 bg-white">
+    <h4 class="text-left">Check out what our other users have been working on.</h4>
   </div>
     <% for(let one of data){ %>
         <div class="custom-card">
