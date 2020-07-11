@@ -37,17 +37,20 @@
     const weekly = document.querySelector('#weekly');
     let monthWork=0,weekWork=0;
 
+    let weekTime = new Date(new Date()-7*24*60*60*1000).setHours(0,0,0,0);
+    let monthTime = new Date(new Date()-30*24*60*60*1000).setHours(0,0,0,0);
+
     for(let i of data){
-        if(new Date(i.startTime) >= new Date()-7*24*60*60*1000){
+        if(new Date(i.startTime) >= weekTime){
             weekWork+=Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10;
             monthWork+=Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10;
-        } else if (new Date(i.startTime) >= new Date()-30*24*60*60*1000) {
+        } else if (new Date(i.startTime) >= monthTime) {
             monthWork+=Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10;
         }
     }
 
-    monthly.innerHTML = Math.round(monthWork/6)/10 + " Hours";
-    weekly.innerHTML = Math.round(weekWork/6)/10 + " Hours";
+    monthly.innerHTML = Math.round(monthWork*10/6)/100 + " Hours";
+    weekly.innerHTML = Math.round(weekWork*10/6)/100 + " Hours";
 
 
     //====================================================================================================
@@ -62,7 +65,6 @@
         if(count>0 && linedate[count-1] === new Date(i.startTime).toDateString()){
             linetime[count-1]+=Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10;
         } else {
-            
             linedate.push(new Date(i.startTime).toDateString());
             linetime.push(Math.round((new Date(i.endTime) - new Date(i.startTime))/6000)/10);
             count++;
