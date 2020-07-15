@@ -14,10 +14,9 @@ const express = require('express'),
     methodOverride = require("method-override"),
     flash = require('connect-flash');
 
-const LocalStorage = require('node-localstorage').LocalStorage;
-localStorage = new LocalStorage('./scratch');
-
 const app = express();
+require('dotenv').config();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
