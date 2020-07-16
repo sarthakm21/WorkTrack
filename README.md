@@ -1,7 +1,7 @@
 # Work Track
-A Nodejs, express and mongodb based productivity tracker app that keeps track of the work you did and the amount of time you spent working.
+A Nodejs, express and mongodb based productivity tracker app that keeps track of the work you did and the amount of time you spent doing it.
 
-It uses Charts to show the data for the day as well as the overall working time for the past 30 days pictorially.
+It uses Charts to represent the data for the day as well as the overall working time for the past 30 days pictorially.
 You can also share your work for others to see and view what others have shared by going to the inspire me section
 
 ## To run the app locally
@@ -18,4 +18,4 @@ You can also share your work for others to see and view what others have shared 
   - Now, into the project folder, create a file named `.env` and add the following code
   - `MONGODB_URI = <your_connection_string>`
   
-### Run node app.js and navigate to localhost:3000 on your browser
+- Run node app.js and navigate to localhost:3000 on your browser
