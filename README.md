@@ -4,12 +4,14 @@ A Nodejs, express and mongodb based productivity tracker app that keeps track of
 It uses Charts to represent the data for the day as well as the overall working time for the past 30 days pictorially.
 You can also share your work for others to see and view what others have shared by going to the inspire me section
 
-## To run the app locally
-- Clone the repo
-- cd into the project folder
-- Run `npm install` to install all the dependencies
+## To install locally
+```bash
+$ git clone https://github.com/sarthakm21/WorkTrack
+$ cd WorkTrack
+$ npm install
+```
 
-### For adding mongodb
+## For adding mongodb
 - Install mongodb from https://www.mongodb.com/try/download/community if you want to store the data locally onto your computer
 - You can also use mongodb Atlas for cloud storage of your data
   - To do that, first create a mongodb atlas account
@@ -18,4 +20,5 @@ You can also share your work for others to see and view what others have shared 
   - Now, into the project folder, create a file named `.env` and add the following code
   - `MONGODB_URI = <your_connection_string>`
   
-- Run node app.js and navigate to localhost:3000 on your browser
+### Finally
+- Run `npm start` and navigate to `localhost:3000` on your browser
