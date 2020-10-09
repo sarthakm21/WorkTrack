@@ -27,7 +27,7 @@ mongoose.set('useUnifiedTopology', true);
 const url = process.env.MONGODB_URI || "mongodb://localhost:27017/worktrack"
 
 mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true }, () => {
-    console.log("Connected to ", url);
+    console.log("Connected");
 });
 
 app.set('view engine', 'ejs');
