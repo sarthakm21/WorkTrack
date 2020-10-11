@@ -6,7 +6,7 @@ You can also share your work for others to see and view what others have shared 
 
 ## To install locally
 ```bash
-$ git clone https://github.com/sarthakm21/WorkTrack
+$ git clone https://github.com/GeekHaven/WorkTrack
 $ cd WorkTrack
 $ npm install
 ```
