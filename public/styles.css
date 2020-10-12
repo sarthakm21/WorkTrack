@@ -89,6 +89,7 @@ i{
     padding: 20px;
     margin: 40px auto;
     border-radius: 5px;
+    background: linear-gradient(rgba(190, 189, 190, 0.73),rgba(13, 13, 13, 0.82)), url('https://thumbs.dreamstime.com/b/overworked-businesswoman-engaged-work-paper-documents-stack-deadline-hard-working-paperwork-concept-modern-open-space-149676888.jpg');
 }
 
 .newuser h3{
