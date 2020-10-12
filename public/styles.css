@@ -287,3 +287,20 @@ i{
         text-align: center!important;
     }
 }
+#togglePassword{
+    color: #337ab7;
+    cursor: pointer;
+    position: absolute;
+    right: .1em;
+    top: .6em;
+    z-index: 9;
+}
+#toggle-re-Password{
+    color: #337ab7;
+    cursor: pointer;
+    position: absolute;
+    right: .1em;
+    top: .6em;
+    z-index: 9;
+
+}
