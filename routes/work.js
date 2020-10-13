@@ -6,12 +6,12 @@ const { getWork, postHome } = require('../controllers/workController');
 
 // ADD WORK ROUTE
 router
-    .route("/addwork", isLoggedIn)
-    .get(getWork);
+    .route("/addwork")
+    .get(isLoggedIn, getWork);
 
 // POST HOME ROUTE
 router
-    .route("/home", isLoggedIn)
-    .post(postHome);
+    .route("/home")
+    .post(isLoggedIn, postHome);
 
 module.exports = router;

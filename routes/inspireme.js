@@ -5,12 +5,18 @@ const express = require('express'),
 const { getInspire, postInspire, deleteInspire } = require('../controllers/inspireController');
 
 // GET INSPIRE
-router.get("/inspireme", getInspire)
+router
+    .route("/inspireme")
+    .get(getInspire);
 
 // POST INSPIRE
-router.post("/inspireme/:id", isLoggedIn, postInspire);
+router
+    .route("/inspireme/:id")
+    .post(isLoggedIn, postInspire);
 
 // DELETE INSPIRE
-router.delete("/inspireme/delete/:id", isLoggedIn, deleteInspire);
+router
+    .route("/inspireme/delete/:id")
+    .delete(isLoggedIn, deleteInspire);
 
 module.exports = router;

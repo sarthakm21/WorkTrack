@@ -6,7 +6,7 @@ const { getStats } = require('../controllers/statController');
 
 // GET STATS ROUTE
 router
-    .route("/statistics", isLoggedIn)
-    .get(getStats);
+    .route("/statistics")
+    .get(isLoggedIn, getStats);
 
 module.exports = router;
