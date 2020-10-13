@@ -235,13 +235,13 @@ i{
         font-weight: 200;
         margin: 20px 5px;
         text-align: center;
-    }   
+    }
 }
 
 @media(max-width: 460px){
     #inspire-hero{
         margin: 30px 0;
-    } 
+    }
     #inspire-hero h1{
         font-size: 2rem;
     }
@@ -304,4 +304,14 @@ i{
     top: .6em;
     z-index: 9;
 
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+:root {
+  --primary-color: rgb(136, 182, 135);
+  --primary-color-darker: rgb(85, 112, 84);
+}
+
+h2.paused{
+  color:red;
 }

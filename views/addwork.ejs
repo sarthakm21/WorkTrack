@@ -13,7 +13,14 @@
             <button class="btn btn-primary" id="started" title="Click here when you start working"
             data-user=<%= currentUser._id %>>Start Task</button>
             <button class="btn btn-warning" id="clear" title="Click to clear the data and start over">Clear Data</button>
-        </div>
+           </div>
+           <!---------stopwatch---------->
+           <section class="container">
+    <div class="watch">
+      <h2 id="watch">00:00:00:00</h2>
+    </div>
+</section>
+<!-------------stopwatch------------>
     </form>
 </div>
 
@@ -40,6 +47,36 @@
             button.innerHTML = "Submit";
             button.title = "Click here to add your work to the records!";
         }
+
+        const watch = document.querySelector('#watch');
+let milliseconds = 0;
+let timer;
+
+const startWatch = () => {
+  watch.classList.remove('paused');
+  clearInterval(timer);
+  timer = setInterval(()=>{
+    milliseconds += 10;
+    let dateTimer = new Date(milliseconds);
+    watch.innerHTML =
+      ('0'+dateTimer.getUTCHours()).slice(-2) + ':' +
+      ('0'+dateTimer.getUTCMinutes()).slice(-2) + ':' +
+      ('0'+dateTimer.getUTCSeconds()).slice(-2) + ':' +
+      ('0'+dateTimer.getUTCMilliseconds()).slice(-3,-1);
+  },10);
+};
+
+const pauseWatch = () => {
+  watch.classList.add('paused');
+  clearInterval(timer);
+};
+
+document.addEventListener('click', (e) =>{
+  const el = e.target;
+  if (button.innerHTML === "Start Task") startWatch();
+  if (button.innerHTML === "End Task") pauseWatch();
+  
+});
 
         button.addEventListener("click", (e) => {
             e.preventDefault();
