@@ -5,14 +5,21 @@ const express = require('express'),
 
 const { getLogin, postLogin, getRegister, postRegister, getLogout } = require('../controllers/authController');
 
-router.get("/login", getLogin);
+// LOGIN ROUTES
+router
+    .route('/login')
+    .get(getLogin)
+    .post(postLogin);
 
-router.post("/login", postLogin);
+// REGISTER ROUTES
+router
+    .route('/register')
+    .get(getRegister)
+    .post(postRegister);
 
-router.get("/register", getRegister);
-
-router.post("/register", postRegister);
-
-router.get("/logout", getLogout);
+// LOGOUT ROUTES
+router
+    .route("/logout")
+    .get(getLogout);
 
 module.exports = router;

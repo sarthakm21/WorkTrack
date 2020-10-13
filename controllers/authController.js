@@ -1,4 +1,5 @@
-const passport = require('passport');
+const passport = require('passport'),
+    User = require('../models/user');
 
 // GET LOGIN
 exports.getLogin = (req, res) => {
