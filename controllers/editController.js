@@ -1,5 +1,6 @@
 const Work = require('../models/userWork');
 
+// GET EDIT ROUTE
 exports.getEdit = (req, res) => {
     Work.findById(req.params.id, (err, done) => {
         if (err) {
@@ -10,6 +11,7 @@ exports.getEdit = (req, res) => {
     });
 };
 
+// PUT EDIT ROUTE
 exports.putEdit = (req, res) => {
     Work.findById(req.params.id, (err, done) => {
         if (err) {
@@ -30,6 +32,7 @@ exports.putEdit = (req, res) => {
     });
 };
 
+// DELETE ROUTE
 exports.deleteWork = (req, res) => {
     Work.findByIdAndRemove(req.params.id, (err, done) => {
         if (err)
