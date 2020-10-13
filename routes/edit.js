@@ -3,45 +3,15 @@ const express = require('express'),
     Work = require('../models/userWork'),
     isLoggedIn = require('../middleware/isLoggedIn');
 
-router.get("/edit/:id",isLoggedIn, (req,res) => {
-    Work.findById(req.params.id, (err,done) => {
-        if(err){
-            console.log(err);
-            return res.redirect("/edit"+req.params.id);
-        } 
-        res.render("editform", {data: done});
-    });
-});
+const { getEdit, putEdit, deleteWork } = require('../controllers/editController');
 
-router.put("/edit/:id", isLoggedIn, (req,res) => {
-    Work.findById(req.params.id, (err,done) => {
-        if(err){
-            console.log(err);
-            return res.redirect("/edit"+req.params.id);
-        }
-        done.title = req.body.title;
-        done.desc = req.body.desc;
+router
+    .route('/edit/:id', isLoggedIn)
+    .get(getEdit)
+    .put(putEdit);
 
-        Work.findByIdAndUpdate(req.params.id, done, (error,updated) => {
-            if(error){
-                console.log(error);
-                return res.redirect("/edit"+req.params.id);
-            } else {
-                res.redirect("/home");
-            }
-        });
-    });
-});
-
-router.delete("/delete/:id", (req,res) => {
-    Work.findByIdAndRemove(req.params.id, (err,done) => {
-        if(err)
-        console.log(err)
-        else
-        console.log("Successfully Deleted");
-
-        res.redirect("/home");
-    });
-});
+router
+    .route("/delete/:id", isLoggedIn)
+    .delete(deleteWork);
 
 module.exports = router;
