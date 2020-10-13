@@ -1,6 +1,5 @@
 const express = require('express'),
     router = express.Router(),
-    Work = require('../models/userWork'),
     isLoggedIn = require('../middleware/isLoggedIn');
 
 const { getEdit, putEdit, deleteWork } = require('../controllers/editController');
