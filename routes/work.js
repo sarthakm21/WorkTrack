@@ -7,7 +7,7 @@ router.get("/addwork", isLoggedIn, (req, res) => {
     res.render("addwork");
 });
 
-router.post("/home", isLoggedIn, (req, res) => {
+router.post("/work", isLoggedIn, (req, res) => {
     Work.create(req.body.post, (err, done) => {
         if (err) {
             console.log("Error occured while posting to home", err);

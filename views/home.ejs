@@ -1,12 +1,28 @@
 <%- include('./partials/header', {page: "home"}) %>
 
 <div class="container">
+<% let sd = (new Date(startDate)).valueOf() %>
+<% let ed = (new Date(endDate)).valueOf() %>
   <% if(work.length > 0){  %> 
+    
+      <form class="form-inline" action="/home" method="POST">
+        <label for="start" class="mb-2 mr-sm-2">FROM</label>
+        <input type="date" class="form-control mb-2 mr-sm-2" name="start" id="start"
+                        value=<%= startDate %>  >
+        <label for="end" class="mb-2 mr-sm-2">TO</label>
+        <input type="date" class="form-control mb-2 mr-sm-2" name="end" id="end"
+                        value=<%= endDate %>  >  
+        <button type="submit" value="Submit Form" class="btn btn-primary mb-2">Get Work</button>
+    </form>
+      
     <% for(let one of work){ %>
+       <% let cd = one.startTime.valueOf() %>
+       <% if( cd >= sd && cd <= ed ) { %>
           <div class="custom-card">
             <div class="row">
               <div class="col-md-5 custom-head">
                 <h3 class="display-4"><%= one.startTime.toDateString() %></h3>
+                
                 <h4>Worked for: <%= Math.round((new Date(one.endTime) - new Date(one.startTime))/6000)/10 %> minutes</h4>
               </div>
               <div class="col-md-7 custom-body">
@@ -35,7 +51,8 @@
               </div>
             </div>
           </div>
-      <% } %> 
+        <% } %> 
+      <% } %>
     <% } else { %>
       
       <div class="newuser">
@@ -63,5 +80,4 @@
 
     <% } %> 
 </div>
-
 <%- include('./partials/footer') %>

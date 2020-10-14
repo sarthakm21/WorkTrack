@@ -70,7 +70,7 @@
                     return alert("Please fill out the title");
                 }
 
-                $.ajax({ url: '/home', type: 'POST', data: { post: post } })
+                $.ajax({ url: '/work', type: 'POST', data: { post: post } })
                     .then(res => {
                         window.location = "/home";
                         localStorage.removeItem('startTime');
