@@ -1,2 +1,10 @@
 .env
+<<<<<<< HEAD
+<<<<<<< HEAD
 node_modules/
+=======
+/node_modules
+>>>>>>> 8a16491... Add Node Modules inside the .gitignore file
+=======
+node_modules/
+>>>>>>> 480b9c2... Fix a Bug
