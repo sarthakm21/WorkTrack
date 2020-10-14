@@ -80,4 +80,21 @@
 
     <% } %> 
 </div>
+<script>
+  let now = new Date();
+ flatpickr("#start",
+ {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    defaultDate: "2020-1-10",
+}
+);
+flatpickr("#end",
+{
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    defaultDate: now
+}
+);
+</script>
 <%- include('./partials/footer') %>
