@@ -73,9 +73,9 @@ const pauseWatch = () => {
 
 document.addEventListener('click', (e) =>{
   const el = e.target;
-  if (button.innerHTML === "Start Task") startWatch();
-  if (button.innerHTML === "End Task") pauseWatch();
-  
+  if (button.innerHTML === "End Task") startWatch();
+  if (button.innerHTML === "Submit") pauseWatch();
+
 });
 
         button.addEventListener("click", (e) => {
