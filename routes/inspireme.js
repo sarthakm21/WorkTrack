@@ -1,60 +1,22 @@
 const express = require('express'),
     router = express.Router(),
-    Inspire = require('../models/inspireme'),
-    Work = require('../models/userWork'),
     isLoggedIn = require('../middleware/isLoggedIn');
 
-router.get("/inspireme", (req,res) => {
-    Inspire.find({}, null, { sort: { postingTime: -1 } }, (err,done) => {
-        if(err)
-        throw err;
+const { getInspire, postInspire, deleteInspire } = require('../controllers/inspireController');
 
-        res.render("inspireme", {data: done});
-    })
-})
+// GET INSPIRE
+router
+    .route("/inspireme")
+    .get(getInspire);
 
-router.post("/inspireme/:id", isLoggedIn, (req,res) => {
-    Work.findById(req.params.id, (err,found) => {
-        if(err)
-        return res.redirect("/home");
+// POST INSPIRE
+router
+    .route("/inspireme/:id")
+    .post(isLoggedIn, postInspire);
 
-        let add = {
-            title: found.title,
-            desc: found.desc,
-            startTime: found.startTime,
-            endTime: found.endTime,
-            authorid: found.author,
-            postid: found._id,
-            postingTime: new Date(),
-            authorname: req.user.username
-        }
-
-        Inspire.create(add, (error, done) => {
-            if(error){
-                console.log(error);   
-                req.flash("error", "This post has already been shared");
-                res.redirect("back");
-            }
-
-            else{
-                req.flash("success", "Successfully shared your work!");
-                res.redirect("/inspireme");
-            }
-        })
-    });
-});
-
-router.delete("/inspireme/delete/:id", (req,res) => {
-    Inspire.findByIdAndDelete(req.params.id, (err,done) => {
-        if(err){
-            console.log(err);
-            req.flash("error", "Some error occured");
-        }
-        else {
-            req.flash("success", "Post Deleted!");
-            res.redirect("/inspireme");
-        }
-    })
-});
+// DELETE INSPIRE
+router
+    .route("/inspireme/delete/:id")
+    .delete(isLoggedIn, deleteInspire);
 
 module.exports = router;
