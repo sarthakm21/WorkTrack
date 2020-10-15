@@ -17,7 +17,7 @@
            <!---------stopwatch---------->
            <section class="container">
     <div class="watch">
-      <h2 id="watch">00:00:00:00</h2>
+      <h2 id="watch">00:00:00</h2>
     </div>
 </section>
 <!-------------stopwatch------------>
@@ -49,20 +49,19 @@
         }
 
         const watch = document.querySelector('#watch');
-let milliseconds = 0;
+let seconds = 0;
 let timer;
 
 const startWatch = () => {
   watch.classList.remove('paused');
   clearInterval(timer);
   timer = setInterval(()=>{
-    milliseconds += 10;
-    let dateTimer = new Date(milliseconds);
+    seconds += 10;
+    let dateTimer = new Date(seconds);
     watch.innerHTML =
       ('0'+dateTimer.getUTCHours()).slice(-2) + ':' +
       ('0'+dateTimer.getUTCMinutes()).slice(-2) + ':' +
-      ('0'+dateTimer.getUTCSeconds()).slice(-2) + ':' +
-      ('0'+dateTimer.getUTCMilliseconds()).slice(-3,-1);
+      ('0'+dateTimer.getUTCSeconds()).slice(-2)  ;
   },10);
 };
 
