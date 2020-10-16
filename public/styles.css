@@ -101,12 +101,18 @@ i{
 .newuser h4 a{
     text-decoration: none;
     color: white;
-    text-decoration: underline white;
-    text-shadow:0rem 0.15rem 0.1rem #4e0888;
+    /* text-decoration: underline white; */
+    /* text-shadow:0rem 0.15rem 0.1rem #4e0888; */
+    text-shadow: none;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
 }
 
 .newuser h4 a:hover{
-    text-shadow: 0rem 0.15rem 0.1rem #8907f3;
+    /* text-decoration: underline; */
+    color: white;
+    text-shadow: 0rem 0.15rem 0.1rem #4e0888;
 }
 
 .newuser h4{
