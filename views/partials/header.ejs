@@ -31,6 +31,9 @@
     <script type="text/javascript">
         window.Chart || document.write('<script src="/Chart.bundle.min.js"><\/script>');
     </script>
+
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/49b4b0b11c.js" crossorigin="anonymous"></script>
     <title>Work Track</title>
 </head>
 
@@ -66,7 +69,7 @@
                 </li>
                 <% } else { %>
                 <li class="nav-item px-lg-2">
-                    <span class="navbar-text">Logged in as <%= currentUser.username %></span>
+                    <span class="navbar-text"><a href="/users/<%= currentUser._id %> ">Logged in as <%= currentUser.username %></a></span>
                 </li>
                 <li class="nav-item">
                     <a class="nav-item nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
