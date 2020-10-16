@@ -1,5 +1,6 @@
 const passport = require('passport'),
-    User = require('../models/user');
+    User = require('../models/user'),
+    Work = require('../models/userWork');
 
 // GET LOGIN
 exports.getLogin = (req, res) => {
@@ -31,7 +32,7 @@ exports.postRegister = (req, res) => {
     }
 
     else {
-        var newUser = new User({ username: req.body.username, email: req.body.email });
+        var newUser = new User(req.body);
         User.register(newUser, req.body.password, (err, user) => {
             if (err) {
                 console.log(err);
@@ -58,4 +59,21 @@ exports.getLogout = (req, res) => {
     req.logout();
     req.flash('success', 'Successfully Logged Out')
     res.redirect("/login");
+};
+
+// GET USER PROFILE
+exports.getUserProfile = (req, res) => {
+    User.findById(req.params.id, (err, user) => {
+        if (err) {
+            console.log(err);
+            return res.redirect('back');
+        }
+        Work.find({ author: user._id }, (err, userWorks) => {
+            if (err) {
+                console.log(err);
+                return res.redirect('back');
+            }
+            res.render('userProfile.ejs', { user, userWorks });
+        });
+    });
 };
