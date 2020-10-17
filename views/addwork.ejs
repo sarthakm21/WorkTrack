@@ -13,7 +13,14 @@
             <button class="btn btn-primary" id="started" title="Click here when you start working"
             data-user=<%= currentUser._id %>>Start Task</button>
             <button class="btn btn-warning" id="clear" title="Click to clear the data and start over">Clear Data</button>
-        </div>
+           </div>
+           <!---------stopwatch---------->
+           <section class="container">
+    <div class="watch">
+      <h2 id="watch">00:00:00</h2>
+    </div>
+</section>
+<!-------------stopwatch------------>
     </form>
 </div>
 
@@ -41,6 +48,40 @@
             button.title = "Click here to add your work to the records!";
         }
 
+        const watch = document.querySelector('#watch');
+let seconds = 0;
+let timer;
+
+const startWatch = () => {
+  watch.classList.remove('paused');
+  clearInterval(timer);
+  timer = setInterval(()=>{
+    seconds += 10;
+    let dateTimer = new Date(seconds);
+    watch.innerHTML =
+      ('0'+dateTimer.getUTCHours()).slice(-2) + ':' +
+      ('0'+dateTimer.getUTCMinutes()).slice(-2) + ':' +
+      ('0'+dateTimer.getUTCSeconds()).slice(-2)  ;
+  },10);
+};
+
+const pauseWatch = () => {
+  watch.classList.add('paused');
+  clearInterval(timer);
+};
+
+document.addEventListener('click', (e) =>{
+  const el = e.target;
+  if (button.innerHTML === "End Task") startWatch();{
+  localStorage.startWatch = new Date();
+}
+  if (button.innerHTML === "Submit") pauseWatch();{
+  localStorage.pauseWatch = new Date();
+}
+
+
+});
+
         button.addEventListener("click", (e) => {
             e.preventDefault();
             var post = {};
@@ -62,6 +103,8 @@
                 post.desc = $('#desc').val();
                 post.startTime = new Date(localStorage.startTime);
                 post.endTime = new Date(localStorage.endTime);
+                post.startWatch= new Date(localStorage.startWatch);
+                post.pauseWatch= new Date(localStorage.pauseWatch);
                 post.author = button.dataset.user;
 
                 console.log(post); //Here, the post object is defined
@@ -75,6 +118,8 @@
                         window.location = "/home";
                         localStorage.removeItem('startTime');
                         localStorage.removeItem('endTime');
+                        localStorage.removeItem('startWatch');
+                        localStorage.removeItem('pauseWatch');
                     })
                     .catch(err => console.log("error", err));
             }
