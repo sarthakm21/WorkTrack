@@ -72,10 +72,12 @@ const pauseWatch = () => {
 
 document.addEventListener('click', (e) =>{
   const el = e.target;
-  if (button.innerHTML === "End Task") startWatch();
+  if (button.innerHTML === "End Task") startWatch();{
   localStorage.startWatch = new Date();
-  if (button.innerHTML === "Submit") pauseWatch();
+}
+  if (button.innerHTML === "Submit") pauseWatch();{
   localStorage.pauseWatch = new Date();
+}
 
 
 });
