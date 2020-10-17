@@ -103,6 +103,8 @@ document.addEventListener('click', (e) =>{
                 post.desc = $('#desc').val();
                 post.startTime = new Date(localStorage.startTime);
                 post.endTime = new Date(localStorage.endTime);
+                post.startWatch= new Date(localStorage.startWatch);
+                post.pauseWatch= new Date(localStorage.pauseWatch);
                 post.author = button.dataset.user;
 
                 console.log(post); //Here, the post object is defined
@@ -116,6 +118,8 @@ document.addEventListener('click', (e) =>{
                         window.location = "/home";
                         localStorage.removeItem('startTime');
                         localStorage.removeItem('endTime');
+                        localStorage.removeItem('startWatch');
+                        localStorage.removeItem('pauseWatch');
                     })
                     .catch(err => console.log("error", err));
             }
