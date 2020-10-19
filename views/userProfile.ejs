@@ -1,0 +1,27 @@
+<%- include('./partials/header', {page: 'User Profile'}) %>
+
+<h1>This is the User Profile Route</h1>
+<p>Welcome to <%= user.username %>'s Profile </p>
+Email: <span><%= user.email %> </span>
+<hr/>
+Description: <span><%= user.about %> </span>
+<hr/>
+<img src='<%= user.imageURL %>' alt='<%= user.username%>' style="height: 100px">
+
+<h3>User Works</h3>
+<% if (userWorks.length) { %>
+    <% userWorks.forEach(work => { %>
+        <div>
+            Title:  <%= work.title %> 
+            <br/>
+            Desc:  <%= work.desc %> 
+            <hr />
+        </div>
+    <% }); %>  
+<% } %>
+
+<a href=<%= user.facebook %> target="_blank"><i class="fab fa-facebook"></i></a>
+<a href=<%= user.instagram %> target="_blank"><i class="fab fa-instagram"></i></a>
+<a href=<%= user.twitter %> target="_blank"><i class="fab fa-twitter"></i></a>
+
+<%- include('./partials/footer') %>
