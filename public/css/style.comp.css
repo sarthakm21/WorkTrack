@@ -1,0 +1,261 @@
+/*
+MEDIA QUERY MANAGER
+
+The conversion is '1em = 16px', and so we are converting 600px, 900px, 1200px and 1800px into ems.
+
+0 - 600px:          Phone
+600 - 900px:        Tablet Portrait
+900 - 1200px:       Tablet Landscape
+[1200 - 1800px]:    Normal CSS Styles
+1800px + :          Big Desktop
+
+$breakpoint Argument Choices
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  background: #e2e1e0;
+  font-size: 1.6rem;
+  /* position: relative;
+  background: url("bg1o.png") no-repeat fixed top center;
+  background-size: cover; */
+  /* background-color: #353536; */ }
+
+i {
+  padding: 2px 10px; }
+
+@media (max-width: 600px) {
+  .button-div button {
+    display: block;
+    width: 100%;
+    margin: 1rem 0; } }
+
+#main-navbar {
+  padding: 2rem;
+  background-color: #343a40 !important; }
+
+.nav-link {
+  transition: .3s all ease; }
+  .nav-link:hover {
+    color: white !important; }
+
+.addForm {
+  width: 60%;
+  margin: 2rem auto;
+  background-color: white;
+  padding: 3rem;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  @media (max-width: 600px) {
+    .addForm {
+      width: 100%; } }
+
+.custom-card {
+  padding: 3rem;
+  /* background-color: #353839; */
+  background-color: white;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
+  @media (min-width: 767px) {
+    .custom-card {
+      width: 80%;
+      margin: 3rem auto;
+      padding: 4rem; } }
+  @media (max-width: 767px) {
+    .custom-card {
+      margin: 2rem;
+      text-align: center; } }
+
+.custom-head h3 {
+  font-size: 1.7rem; }
+
+@media (min-width: 767px) {
+  .custom-head {
+    border-right: 1px solid rgba(155, 153, 153, 0.2); } }
+
+@media (max-width: 767px) {
+  .custom-head {
+    border-bottom: 1px solid rgba(155, 153, 153, 0.2);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem; } }
+
+.newuser {
+  background-color: #353839;
+  color: white;
+  padding: 2rem;
+  margin: 4rem auto;
+  border-radius: 5px;
+  background: linear-gradient(rgba(190, 189, 190, 0.73), rgba(13, 13, 13, 0.82)), url("https://thumbs.dreamstime.com/b/overworked-businesswoman-engaged-work-paper-documents-stack-deadline-hard-working-paperwork-concept-modern-open-space-149676888.jpg"); }
+  .newuser h3 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 0rem 0.25rem 0.15rem #4e0888; }
+    @media (max-width: 460px) {
+      .newuser h3 {
+        font-size: 3.2rem; } }
+  .newuser h4 {
+    padding: .5rem 0;
+    font-weight: 300;
+    text-shadow: 0rem 0.15rem 0.1rem #4e0888; }
+    @media (max-width: 460px) {
+      .newuser h4 {
+        font-size: 1.6rem; } }
+    .newuser h4 a {
+      text-decoration: none;
+      color: white;
+      text-shadow: none;
+      color: white;
+      font-weight: bold;
+      font-style: italic; }
+      .newuser h4 a:hover {
+        color: white;
+        text-shadow: 0rem 0.15rem 0.1rem #4e0888; }
+
+.imagebox {
+  background-color: #2c2c2c;
+  padding: 2rem;
+  margin: 1rem 0;
+  align-items: center;
+  border-radius: 10px; }
+  @media (max-width: 460px) {
+    .imagebox {
+      padding: 1rem 0;
+      margin: 1rem 0;
+      border-radius: 0; } }
+
+@media (max-width: 460px) {
+  #inspire-hero {
+    margin: 3rem 0; } }
+
+@media (max-width: 460px) {
+  #inspire-hero h1 {
+    font-size: 2rem; } }
+
+.loginPage {
+  background-color: #2c2c2c;
+  color: white;
+  padding: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 5rem;
+  border-radius: 5px; }
+  @media (max-width: 460px) {
+    .loginPage {
+      padding: 2rem;
+      margin: 1rem; } }
+  .loginPage div h1 {
+    font-size: 5rem;
+    text-align: end; }
+    @media (max-width: 768px) {
+      .loginPage div h1 {
+        font-weight: 200;
+        margin: 2rem .5rem;
+        text-align: center; } }
+    @media (max-width: 500px) {
+      .loginPage div h1 {
+        font-size: 2rem;
+        margin-bottom: 3rem; } }
+  .loginPage div h3 {
+    font-weight: 200;
+    margin: 2rem .5rem;
+    text-align: end; }
+    @media (max-width: 768px) {
+      .loginPage div h3 {
+        font-weight: 200;
+        margin: 2rem .5rem;
+        text-align: center; } }
+
+@media (max-width: 900px) {
+  .registerPage {
+    text-align: center !important; } }
+
+.registerPage h1 {
+  font-size: 3.5rem !important; }
+
+.auth-div {
+  margin: 0;
+  color: black;
+  background-color: white;
+  padding: 5rem 4rem;
+  border-radius: 2px;
+  width: 35rem;
+  height: 40rem;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .auth-div form button {
+    width: 100%;
+    margin-top: 2rem; }
+  .auth-div form input:hover {
+    border: 1px solid #858585; }
+
+.register-div {
+  height: 50rem !important; }
+
+#togglePassword {
+  color: #337ab7;
+  cursor: pointer;
+  position: absolute;
+  right: .1em;
+  top: .6em;
+  z-index: 9; }
+
+#toggle-re-Password {
+  color: #337ab7;
+  cursor: pointer;
+  position: absolute;
+  right: .1em;
+  top: .6em;
+  z-index: 9; }
+
+.fix-stats {
+  width: 40vw;
+  background-color: white;
+  display: flex;
+  margin: 3rem auto;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  padding: 3rem 2rem; }
+  @media (max-width: 460px) {
+    .fix-stats {
+      width: 90vw;
+      padding: 2rem; } }
+  .fix-stats p {
+    margin-bottom: .5rem; }
+  @media (max-width: 600px) {
+    .fix-stats {
+      width: 70vw; } }
+
+@media (max-width: 768px) {
+  .chart {
+    max-width: 100%; } }
+
+@media (max-width: 460px) {
+  .chart {
+    padding: 0 !important; } }
+
+.chartArea {
+  margin: 2rem;
+  padding: 2rem 0;
+  background-color: #dddddc; }
+  @media (max-width: 460px) {
+    .chartArea {
+      margin: 2rem 0; } }
+
+.chart-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto; }
+  .chart-header h3 {
+    font-weight: 400;
+    text-align: center; }

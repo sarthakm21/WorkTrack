@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  background: #e2e1e0;
+  /* position: relative;
+  background: url("bg1o.png") no-repeat fixed top center;
+  background-size: cover; */
+  /* background-color: #353536; */
+}
+
+i {
+  padding: 2px 10px;
+}

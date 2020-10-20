@@ -1,0 +1,10 @@
+.button-div {
+
+  button {
+    @media(max-width: 600px) {
+      display: block;
+      width: 100%;
+      margin: .8rem 0;
+    }
+  }
+}
