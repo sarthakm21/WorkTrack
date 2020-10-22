@@ -9,10 +9,9 @@
     "dev": "nodemon app.js",
     "watch:sass": "node-sass public/sass/main.scss public/css/style.css -w",
     "compile:sass": "node-sass public/sass/main.scss public/css/style.comp.css",
-    "concat:sass": "concat -o public/css/style.concat.css public/css/style.comp.css public/bootstrap/css/bootstrap.min.css",
-    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' public/css/style.concat.css -o public/css/style.prefix.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' public/css/style.comp.css -o public/css/style.prefix.css",
     "compress:css": "node-sass public/css/style.prefix.css public/css/style.css --output-style compressed",
-    "build:css": "npm-run-all compile:sass concat:sass prefix:css compress:css"
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "author": "Sarthak",
   "license": "MIT",
