@@ -6,37 +6,42 @@
     <h1 class="display-4 text-left">See what<i class="fa fa-users" aria-hidden="true"></i> are working </h1>
     <hr class="mr-5 my-3 my-md-2 bg-white">
     <h4 class="text-left">Scroll through the page,You get more motivated!<i class="fa fa-thumbs-up" aria-hidden="true"></i></h4>
-  <p class=" my-md-0">Push yourself, because no one else is going to do it for you</p>
+    <p class=" my-md-0">Push yourself, because no one else is going to do it for you</p>
   </div>
-    <% for(let one of data){ %>
+      <% for(let one of data){ %>
         <div class="custom-card">
-            <div class="row">
-              <div class="col-md-5 custom-head">
+          <div class="row">
+            <div class="col-md-5 custom-head">
                 <h3 class="display-4"><%= one.postingTime.toDateString() %></h3>
                 <h3 class="display-4">Shared by <%= one.authorname %></h3>
                 <h4>Worked for: <%= Math.round((new Date(one.endTime) - new Date(one.startTime))/6000)/10 %> minutes</h4>
                 <h4> </h4>
+            </div>
+            <div class="col-md-7 custom-body">
+              <div>
+                <h5><%= one.title %> </h5>
+                <p><%= one.desc %> </p>
               </div>
-              <div class="col-md-7 custom-body">
-                <div>
-                    <h5><%= one.title %> </h5>
-                    <p><%= one.desc %> </p>
-                </div>
-                <% if(currentUser && currentUser._id.equals(one.authorid)){ %>
-                  <form action="/inspireme/delete/<%= one._id %>?_method=DELETE" method="POST">
-                    <button class="btn btn-sm btn-danger delete-button" 
-                            style="color: white;" 
-                            title="Delete post"
-                            href="/delete/<%= one._id %>"
-                            onclick="return confirm('Are you sure you want to delete this?')">
-                            <i class="fas fa-trash"></i>
-                        </button>                   
-                  </form>
-                <% } %>
-              </div>
+              <% if(currentUser && currentUser._id.equals(one.authorid)){ %>
+              <form action="/inspireme/delete/<%= one._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-sm btn-danger delete-button" 
+                    style="color: white;" 
+                    title="Delete post"
+                    href="/delete/<%= one._id %>"
+                    onclick="return confirm('Are you sure you want to delete this?')">
+                    <i class="fas fa-trash"></i>
+                </button>                   
+              </form>
+              <% } %>
             </div>
           </div>
-    <% } %> 
+        </div>
+      <% } %> 
 </div>
+
+<script>
+  // background color to body of inspireme page
+  document.body.style.background = "#2E8B60";
+</script>
 
 <%- include('./partials/footer') %>
