@@ -21,4 +21,4 @@ $ npm install
   - `MONGODB_URI = <your_connection_string>`
   
 ### Finally
-- Run `npm start` and navigate to `localhost:3000` on your browser
+- Run `npm run dev` or `npm start` and navigate to `localhost:3000` on your browser

@@ -3,7 +3,9 @@ const express = require('express'),
     isLoggedIn = require('../middleware/isLoggedIn');
 
 
+
 const { getHome, getIndex, postHome } = require('../controllers/showController');
+
 
 // GET INDEX ROUTE
 router

@@ -5,6 +5,7 @@ exports.getWork = (req, res) => {
     res.render("addwork");
 };
 
+
 // POST WORK ROUTE
 exports.postWork = (req, res) => {
     Work.create(req.body.post, (err, done) => {
