@@ -1,0 +1,91 @@
+.custom-card {
+  padding: 2rem;
+  /* background-color: #353839; */
+  background-color: $cw;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+  @media(min-width: 767px) {
+    width: 80%;
+    margin: 2rem auto;
+    padding: 2.5rem;
+  }
+
+  @media(max-width: 767px) {
+    margin: 1.5rem;
+    text-align: center;
+  }
+}
+
+.custom-head {
+  & h3 {
+    font-size: 1.2rem;
+  }
+
+  @media(min-width: 767px) {
+    border-right: 1px solid rgba(155, 153, 153, 0.2);
+  }
+
+  @media(max-width: 767px) {
+    border-bottom: 1px solid rgba(155, 153, 153, 0.2);
+    padding-bottom: .7rem;
+    margin-bottom: .7rem;
+  }
+}
+
+.newuser {
+  background-color: #353839;
+  color: $cw;
+  padding: 1.4rem;
+  margin: 2.5rem auto;
+  border-radius: 5px;
+  background: linear-gradient(rgba(190, 189, 190, 0.73), rgba(13, 13, 13, 0.82)),
+    url('https://thumbs.dreamstime.com/b/overworked-businesswoman-engaged-work-paper-documents-stack-deadline-hard-working-paperwork-concept-modern-open-space-149676888.jpg');
+
+  & h3 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0rem 0.25rem 0.15rem $c-purple;
+
+    @media(max-width: 460px) {
+      font-size: 2rem;
+    }
+  }
+
+  & h4 {
+    padding: .5rem 0;
+    font-weight: 300;
+    text-shadow: 0rem 0.15rem 0.1rem $c-purple;
+
+    @media(max-width: 460px) {
+      font-size: 1rem;
+    }
+
+    & a {
+      text-decoration: none;
+      color: $cw;
+      text-shadow: none;
+      color: $cw;
+      font-weight: bold;
+      font-style: italic;
+
+      &:hover {
+        color: white;
+        text-shadow: 0rem 0.15rem 0.1rem $c-purple;
+      }
+    }
+  }
+}
+
+.imagebox {
+  background-color: rgb(44, 44, 44);
+  padding: 1.5rem;
+  margin: .7rem 0;
+  align-items: center;
+  border-radius: 10px;
+
+  @media(max-width: 460px) {
+    padding: .7rem 0;
+    margin: .7rem 0;
+    border-radius: 0;
+  }
+}

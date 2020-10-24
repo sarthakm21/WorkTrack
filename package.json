@@ -6,7 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "watch:sass": "node-sass public/sass/main.scss public/css/style.css -w",
+    "compile:sass": "node-sass public/sass/main.scss public/css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' public/css/style.comp.css -o public/css/style.prefix.css",
+    "compress:css": "node-sass public/css/style.prefix.css public/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "author": "Sarthak",
   "license": "MIT",
@@ -24,6 +29,12 @@
     "passport-local-mongoose": "^6.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "autoprefixer": "^10.0.1",
+    "concat": "^1.0.3",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.1.2",
+    "postcss-cli": "^8.1.0"
   }
 }

@@ -1,0 +1,12 @@
+#inspire-hero {
+
+  @media(max-width: 460px) {
+    margin: 2.5rem 0;
+  }
+
+  & h1 {
+    @media(max-width: 460px) {
+      font-size: 1.5rem;
+    }
+  }
+}
