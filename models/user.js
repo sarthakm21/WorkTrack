@@ -13,7 +13,9 @@ var UserSchema = new mongoose.Schema({
     works: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'work'
-    }]
+    }],
+    resetPasswordToken: String,
+    resetPasswordExpires: Date
 });
 
 UserSchema.plugin(passportLocalMongoose, { usernameField: 'email' });

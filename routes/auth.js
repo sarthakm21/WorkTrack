@@ -1,8 +1,20 @@
 const express = require('express'),
   router = express.Router(),
-  isLoggedIn = require('../middleware/isLoggedIn');
+  isLoggedIn = require('../middleware/isLoggedIn'),
+  asyncErrorHandler = require('../middleware/asyncErrorHandler');
 
-const { getLogin, postLogin, getRegister, postRegister, getLogout, getUserProfile } = require('../controllers/authController');
+const {
+  getLogin,
+  postLogin,
+  getRegister,
+  postRegister,
+  getLogout,
+  getUserProfile,
+  getForgotPw,
+  putForgotPw,
+  getReset,
+  putReset
+} = require('../controllers/authController');
 
 // LOGIN ROUTES
 router
@@ -25,5 +37,17 @@ router
 router
   .route('/users/:id')
   .get(isLoggedIn, getUserProfile);
+
+// FORGOT PASSWORD ROUTES
+router
+  .route('/forgot-password')
+  .get(getForgotPw)
+  .put(asyncErrorHandler(putForgotPw));
+
+// RESET PASSWORD ROUTES
+router
+  .route('/reset/:token')
+  .get(asyncErrorHandler(getReset))
+  .put(asyncErrorHandler(putReset));
 
 module.exports = router;
