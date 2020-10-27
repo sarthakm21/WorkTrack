@@ -1,23 +1,29 @@
 <%- include('./partials/header', {page: "addwork"}) %>
-<div class="container">
-    <form class="addform">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Title</label>
-            <input type="text" class="form-control" aria-describedby="emailHelp" id="title" required>
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Description</label>
-            <textarea class="form-control" rows="5" id="desc"></textarea>
-        </div>
-        <div class="button-div">
-            <button class="btn btn-primary" id="started" title="Click here when you start working"
-            data-user=<%= currentUser._id %>>Start Task</button>
-            <button class="btn btn-warning" id="clear" title="Click to clear the data and start over">Clear Data</button>
-        </div>
-    </form>
+
+    <div class="container">
+        <form class="addform">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Title</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" id="title" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Description</label>
+                <textarea class="form-control" rows="5" id="desc"></textarea>
+            </div>
+            <div class="button-div">
+                <button class="btn btn-primary" id="started" title="Click here when you start working"
+                data-user=<%= currentUser._id %>>Start Task</button>
+                <button class="btn btn-warning" id="clear" title="Click to clear the data and start over">Clear Data</button>
+            </div>
+        </form>
+    </div>
 </div>
 
     <script>
+
+        // background color to body of addwork page
+        document.body.style.background = "#2E8B60";
+        
         const button = document.getElementById('started');
         const clear = document.getElementById('clear');
 

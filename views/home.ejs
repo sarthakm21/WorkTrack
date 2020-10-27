@@ -3,65 +3,70 @@
 <div class="container">
   <% if(work.length > 0){  %> 
     <% for(let one of work){ %>
-          <div class="custom-card">
-            <div class="row">
-              <div class="col-md-5 custom-head">
-                <h3 class="display-4"><%= one.startTime.toDateString() %></h3>
-                <h4>Worked for: <%= Math.round((new Date(one.endTime) - new Date(one.startTime))/6000)/10 %> minutes</h4>
-              </div>
-              <div class="col-md-7 custom-body">
-                <div>
-                    <h5><%= one.title %> </h5>
-                    <p><%= one.desc %> </p>
-                    <a class="btn btn-sm btn-warning" href="/edit/<%= one._id %>" >
-                        <i class="far fa-edit"></i>
-                    </a>
+      <div class="custom-card">
+        <div class="row">
+          <div class="col-md-5 custom-head">
+            <h3 class="display-4"><%= one.startTime.toDateString() %></h3>
+            <h4>Worked for: <%= Math.round((new Date(one.endTime) - new Date(one.startTime))/6000)/10 %> minutes</h4>
+          </div>
+          <div class="col-md-7 custom-body">
+            <div>
+              <h5><%= one.title %> </h5>
+              <p><%= one.desc %> </p>
+              <a class="btn btn-sm btn-warning" href="/edit/<%= one._id %>" >
+              <i class="far fa-edit"></i>
+              </a>
 
-                    <form method="POST" action="/delete/<%= one._id %>?_method=DELETE" style="display: inline;">
-                        <button class="btn btn-sm btn-danger delete-button" 
-                            style="color: white;" 
-                            href="/delete/<%= one._id %>"
-                            onclick="return confirm('Are you sure you want to delete this?')">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </form>
+              <form method="POST" action="/delete/<%= one._id %>?_method=DELETE" style="display: inline;">
+                <button class="btn btn-sm btn-danger delete-button" 
+                  style="color: white;" 
+                  href="/delete/<%= one._id %>"
+                  onclick="return confirm('Are you sure you want to delete this?')">
+                  <i class="fas fa-trash"></i>
+                  </button>
+              </form>
 
-                    <form method="POST" action="inspireme/<%= one._id %> " style="display: inline;">
-                        <button class="btn btn-sm btn-success" onclick="return confirm('Are you sure you want to share this?')">
-                            <i class="fas fa-share-alt"></i>
-                        </button>
-                    </form>
-                </div>
-              </div>
+              <form method="POST" action="inspireme/<%= one._id %> " style="display: inline;">
+                <button class="btn btn-sm btn-success" onclick="return confirm('Are you sure you want to share this?')">
+                  <i class="fas fa-share-alt"></i>
+                </button>
+              </form>
             </div>
           </div>
-      <% } %> 
-    <% } else { %>
-      
-      <div class="newuser">
-        <h3 class="display-4 text-center">This is where your added works will be displayed</h3>
-
-        <div class="my-5">
-        <h4 class="text-center"><strong>Get Started. </strong>Head over to the <a href="/addwork">Add Work</a> section to start tracking a new work</h4>
-          <div class="row imagebox">
-            <p class="col-md-4 col-12 text-justify">When you start working, click on the <strong>Start Task</strong> button, then you can close the website if you wish and get on with the work. It records the starting time of your work</p>
-            <img src="/start task.PNG" alt="Start work" class="col-md-8 col-12">
-          </div>
-          <div class="row imagebox">
-            <p class="col-md-4 col-12 text-justify">When you are done working, just click on the <strong>End Task</strong> button that records the time when you complete the work.</p>
-            <img src="/endtask.PNG" alt="Start work" class="col-md-8 col-12">
-          </div>
-          <div class="row imagebox">
-            <p class="col-md-4 col-12 text-justify">Click on the <strong>Submit</strong> button after adding the title and description of the task you accomplished to add your work to the records</p>
-            <img src="/submit.PNG" alt="Start work" class="col-md-8 col-12">
-          </div>
         </div>
-
-        <h4 class="text-center">Go to the <a href="/statistics">Your Stats</a> section to see the statistics regarding the work that you track</h4>
-        <h4 class="text-center">Need motivation? Check out the <a href="/inspireme">Inspire Me</a> section to see the work that other users have done and shared</h4>
       </div>
-
     <% } %> 
+  <% } else { %>
+        
+  <div class="newuser">
+    <h3 class="display-4 text-center">This is where your added works will be displayed</h3>
+
+    <div class="my-5">
+      <h4 class="text-center"><strong>Get Started. </strong>Head over to the <a href="/addwork">Add Work</a> section to start tracking a new work</h4>
+      <div class="row imagebox">
+        <p class="col-md-4 col-12 text-justify">When you start working, click on the <strong>Start Task</strong> button, then you can close the website if you wish and get on with the work. It records the starting time of your work</p>
+        <img src="/start task.PNG" alt="Start work" class="col-md-8 col-12">
+      </div>
+      <div class="row imagebox">
+        <p class="col-md-4 col-12 text-justify">When you are done working, just click on the <strong>End Task</strong> button that records the time when you complete the work.</p>
+        <img src="/endtask.PNG" alt="Start work" class="col-md-8 col-12">
+      </div>
+      <div class="row imagebox">
+        <p class="col-md-4 col-12 text-justify">Click on the <strong>Submit</strong> button after adding the title and description of the task you accomplished to add your work to the records</p>
+        <img src="/submit.PNG" alt="Start work" class="col-md-8 col-12">
+      </div>
+    </div>
+
+    <h4 class="text-center">Go to the <a href="/statistics">Your Stats</a> section to see the statistics regarding the work that you track</h4>
+    <h4 class="text-center">Need motivation? Check out the <a href="/inspireme">Inspire Me</a> section to see the work that other users have done and shared</h4>
+  </div>
+
+  <% } %> 
 </div>
+
+<script>
+  // background color to body of home page
+  document.body.style.background = "#2E8B60";
+</script>
 
 <%- include('./partials/footer') %>
