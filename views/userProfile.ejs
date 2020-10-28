@@ -1,27 +1,46 @@
 <%- include('./partials/header', {page: 'User Profile'}) %>
 
-<h1>This is the User Profile Route</h1>
-<p>Welcome to <%= user.username %>'s Profile </p>
-Email: <span><%= user.email %> </span>
+
+<div class="container">
+<div class="profilepage">
+  <div class="col-md-6 col-12">
+<h1>Welcome to <%= user.username %>'s Profile </h1>
+<h2>Email: <span><%= user.email %> </span></h2>
+  </div>
+
+
+
+
 <hr/>
-Description: <span><%= user.about %> </span>
+<h2>Bio: <span><%= user.about %> </span></h2>
 <hr/>
+
+
 <img src='<%= user.imageURL %>' alt='<%= user.username%>' style="height: 100px">
+
+</div>
+<div class="custom-card">
 
 <h3>User Works</h3>
 <% if (userWorks.length) { %>
     <% userWorks.forEach(work => { %>
         <div>
-            Title:  <%= work.title %> 
+       Title:  <%= work.title %>
             <br/>
-            Desc:  <%= work.desc %> 
+            Description:  <%= work.desc %>
             <hr />
         </div>
-    <% }); %>  
+    <% }); %>
 <% } %>
+</div>
 
-<a href=<%= user.facebook %> target="_blank"><i class="fab fa-facebook"></i></a>
-<a href=<%= user.instagram %> target="_blank"><i class="fab fa-instagram"></i></a>
-<a href=<%= user.twitter %> target="_blank"><i class="fab fa-twitter"></i></a>
+
+</div>
+<div class = "profilefooter">
+<a href=<%= user.facebook %> target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+<a href=<%= user.instagram %> target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+<a href=<%= user.twitter %> target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+</div>
+
 
 <%- include('./partials/footer') %>

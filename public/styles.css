@@ -247,13 +247,13 @@ i{
         font-weight: 200;
         margin: 20px 5px;
         text-align: center;
-    }   
+    }
 }
 
 @media(max-width: 460px){
     #inspire-hero{
         margin: 30px 0;
-    } 
+    }
     #inspire-hero h1{
         font-size: 2rem;
     }
@@ -315,5 +315,28 @@ i{
     right: .1em;
     top: .6em;
     z-index: 9;
+
+}
+.profilepage{
+  margin: 7.5px;
+  padding: 7.5px 0;
+  background-color: #337ab7;
+  height: 310px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) ;
+}
+
+.profilepage div h1{
+  font-size: 2.6rem;
+
+}
+.profilepage div h2{
+      font-weight: 200;
+      margin: 20px 5px;
+
+}
+.profilefooter{
+  margin-bottom: : 7.5px;
+  padding: 7.5px ;
+  background-color: white;
 
 }
