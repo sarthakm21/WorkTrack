@@ -321,7 +321,11 @@ i{
   margin: 7.5px;
   padding: 7.5px 0;
   background-color: #337ab7;
+<<<<<<< HEAD
   height: 200px;
+=======
+  height: 310px;
+>>>>>>> 71ba96764e1e4b69e721f60d091bf273081dcba3
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) ;
 }
 
@@ -334,3 +338,12 @@ i{
       margin: 20px 5px;
 
 }
+<<<<<<< HEAD
+=======
+.profilefooter{
+  margin-bottom: : 7.5px;
+  padding: 7.5px ;
+  background-color: white;
+
+}
+>>>>>>> 71ba96764e1e4b69e721f60d091bf273081dcba3

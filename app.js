@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
@@ -15,7 +16,6 @@ const express = require('express'),
     flash = require('connect-flash');
 
 const app = express();
-require('dotenv').config();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
