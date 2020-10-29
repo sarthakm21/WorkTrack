@@ -1,6 +1,6 @@
 <%- include('./partials/header', {page: 'User Profile'}) %>
 
-
+<div class="container">
 <div class="profilepage">
   <div class="col-md-6 col-12">
 <h1>Welcome to <%= user.username %>'s Profile </h1>
@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="profiledescription">
+<div class="newuser">
 
 <hr/>
 <h2>Bio: <span><%= user.about %> </span></h2>
@@ -33,6 +33,6 @@
 <a href=<%= user.instagram %> target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
 <a href=<%= user.twitter %> target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
 </div>
-
+</div>
 
 <%- include('./partials/footer') %>
