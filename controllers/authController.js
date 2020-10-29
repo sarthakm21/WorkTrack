@@ -1,8 +1,5 @@
 const passport = require('passport'),
-<<<<<<< HEAD
-    User = require('../models/user'),
-    Work = require('../models/userWork');
-=======
+
     crypto = require('crypto'),
     util = require('util'),
     User = require('../models/user'),
@@ -10,7 +7,7 @@ const passport = require('passport'),
 
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
->>>>>>> 71ba96764e1e4b69e721f60d091bf273081dcba3
+
 
 // GET LOGIN
 exports.getLogin = (req, res) => {
@@ -86,8 +83,7 @@ exports.getUserProfile = (req, res) => {
             res.render('userProfile.ejs', { user, userWorks });
         });
     });
-<<<<<<< HEAD
-=======
+
 };
 
 // GET FORGOT PASSWORD
@@ -190,5 +186,5 @@ exports.putReset = async (req, res, next) => {
 
     req.session.success = 'Password Successfully Updated!';
     res.redirect('/');
->>>>>>> 71ba96764e1e4b69e721f60d091bf273081dcba3
+
 };
