@@ -13,7 +13,7 @@
             <div class="button-div">
                 <button class="btn btn-primary" id="started" title="Click here when you start working"
                 data-user=<%= currentUser._id %>>Start Task</button>
-                <button class="btn btn-warning" id="clear" title="Click to clear the data and start over">Clear Data</button>
+                <button class="btn btn-warning" id="clear" title="Click to clear the data and start over" type="button">Clear Data</button>
             </div>
         </form>
     </div>
@@ -28,13 +28,27 @@
         const clear = document.getElementById('clear');
 
         clear.addEventListener("click", (e) => {
-            if(confirm("Warning, this action will remove all the text data as well as your saved starting and ending time")){
-                localStorage.removeItem('startTime');
-                localStorage.removeItem('endTime');
-                window.location.reload();
-            } else {
-                e.preventDefault();
-            }
+            bootbox.confirm({
+                title: "Warning!",
+                message: "This action will remove all the text data as well as your saved starting and ending time.",
+                buttons: {
+                    cancel: {
+                        label: '<i class="fa fa-times"></i> Cancel'
+                    },
+                confirm: {
+                        label: '<i class="fa fa-check"></i> Confirm'
+                    }
+                },
+                callback: function (result) {
+                    if(result){
+                            localStorage.removeItem('startTime');
+                            localStorage.removeItem('endTime');
+                            window.location.reload();  
+                    } else {
+                        e.preventDefault();
+                    }
+                }
+            });
         })
 
         if (localStorage.startTime && !localStorage.endTime) {
@@ -73,7 +87,10 @@
                 console.log(post); //Here, the post object is defined
 
                 if (!post.title) {
-                    return alert("Please fill out the title");
+                    return bootbox.alert({
+                                message: "Please fill out the title.",
+                                backdrop: true
+                            });
                 }
 
                 $.ajax({ url: '/home', type: 'POST', data: { post: post } })
