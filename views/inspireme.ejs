@@ -23,12 +23,13 @@
                 <p><%= one.desc %> </p>
               </div>
               <% if(currentUser && currentUser._id.equals(one.authorid)){ %>
-              <form action="/inspireme/delete/<%= one._id %>?_method=DELETE" method="POST">
+              <form action="/inspireme/delete/<%= one._id %>?_method=DELETE" method="POST" id="deleForm">
                 <button class="btn btn-sm btn-danger delete-button" 
                     style="color: white;" 
                     title="Delete post"
                     href="/delete/<%= one._id %>"
-                    onclick="return confirm('Are you sure you want to delete this?')">
+                    type="button"
+                    onclick="askConfirm(' Warning!','Are you sure you want to delete this? ')">
                     <i class="fas fa-trash"></i>
                 </button>                   
               </form>
@@ -42,6 +43,35 @@
 <script>
   // background color to body of inspireme page
   document.body.style.background = "#2E8B60";
+
+
+  let form = document.getElementById("deleForm");
+
+  function askConfirm(title,message){
+    bootbox.confirm({
+    title: title,
+    message: message,
+    buttons: {
+        cancel: {
+            label: '<i class="fa fa-times"></i> Cancel'
+        },
+        confirm: {
+            label: '<i class="fa fa-check"></i> Confirm'
+        }
+    },
+    callback: function (result) {
+
+      if(result){
+          form.submit();    
+      } else {
+      
+      }
+    }
+    
+  });
+              
+}
+
 </script>
 
 <%- include('./partials/footer') %>

@@ -17,17 +17,18 @@
               <i class="far fa-edit"></i>
               </a>
 
-              <form method="POST" action="/delete/<%= one._id %>?_method=DELETE" style="display: inline;">
+              <form method="POST" action="/delete/<%= one._id %>?_method=DELETE" style="display: inline;" id="deleform">
                 <button class="btn btn-sm btn-danger delete-button" 
                   style="color: white;" 
                   href="/delete/<%= one._id %>"
-                  onclick="return confirm('Are you sure you want to delete this?')">
+                  type="button"
+                  onclick="askDeleConfirm(' Warning! ','Are you sure you want to delete this?')">
                   <i class="fas fa-trash"></i>
                   </button>
               </form>
 
-              <form method="POST" action="inspireme/<%= one._id %> " style="display: inline;">
-                <button class="btn btn-sm btn-success" onclick="return confirm('Are you sure you want to share this?')">
+              <form method="POST" action="inspireme/<%= one._id %> " style="display: inline;" id="shareform">
+                <button class="btn btn-sm btn-success" type="button"  onclick="askShareConfirm(' Info ','Are you sure you want to share this?')">
                   <i class="fas fa-share-alt"></i>
                 </button>
               </form>
@@ -67,6 +68,61 @@
 <script>
   // background color to body of home page
   document.body.style.background = "#2E8B60";
+
+  
+  let deleform = document.getElementById("deleform");
+  let shareform = document.getElementById("shareform");
+
+  function askDeleConfirm(title,message){
+    bootbox.confirm({
+    title: title,
+    message: message,
+    buttons: {
+        cancel: {
+            label: '<i class="fa fa-times"></i> Cancel'
+        },
+        confirm: {
+            label: '<i class="fa fa-check"></i> Confirm'
+        }
+    },
+    callback: function (result) {
+
+        if(result){  
+          deleform.submit();
+        } else {
+
+        }
+      }
+
+    });
+
+  }
+
+  function askShareConfirm(title,message){
+    bootbox.confirm({
+    title: title,
+    message: message,
+    buttons: {
+        cancel: {
+            label: '<i class="fa fa-times"></i> Cancel'
+        },
+        confirm: {
+            label: '<i class="fa fa-check"></i> Confirm'
+        }
+    },
+    callback: function (result) {
+
+        if(result){  
+          shareform.submit();
+        } else {
+
+        }
+      }
+
+    });
+
+  }
+
 </script>
 
 <%- include('./partials/footer') %>
